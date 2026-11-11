@@ -3,29 +3,37 @@ package com.company.librarymanagement.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
-@AllArgsConstructor
 @Entity
 @Table(name = "books")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Book {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
-
+    @Column(nullable = false)
     private String title;
+
+    @Column(nullable = false)
     private String author;
+
     private String category;
-    private String publicationYear;
-    private String totalQuantity;
-    private String availableQuantity;
-    private String rare;
 
-    public Book() {
-    }
+    private Integer publicationYear;
 
+    @Column(nullable = false)
+    private Integer totalQuantity;
 
+    @Column(nullable = false)
+    private Integer availableQuantity;
+
+    @Column(nullable = false)
+    private Boolean rare = false;
 }
