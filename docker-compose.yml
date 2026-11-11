@@ -1,0 +1,16 @@
+# Sobe um PostgreSQL local para desenvolvimento.
+# Usuário e senha são apenas para uso local e batem com o application.properties.
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: library
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - library-data:/var/lib/postgresql/data
+
+volumes:
+  library-data:
